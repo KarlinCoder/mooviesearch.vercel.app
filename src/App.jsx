@@ -21,7 +21,12 @@ export default function App() {
       />
 
       <main className="flex flex-wrap justify-center gap-5">
-        {isLoading && <h1>Cargando datos</h1>}
+        {isLoading && (
+          <h2 className="font-medium text-slate-300 text-xl w-52 text-center">
+            Cargando datos
+          </h2>
+        )}
+
         {peliculas.map((peli) => {
           return <MovieCard movie={peli} imageUrl={IMAGE_URL} key={peli.id} />;
         })}
