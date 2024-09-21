@@ -23,7 +23,7 @@ export default function App() {
       <main className="flex flex-wrap justify-center gap-5">
         {isLoading && (
           <h2 className="font-medium text-slate-300 text-xl w-52 text-center">
-            Cargando datos
+            Cargando datos...
           </h2>
         )}
 

@@ -18,7 +18,7 @@ export default function SearchBar({ API_URL, setPeliculas, setIsLoading }) {
       </label>
       <div className="flex items-center gap-2">
         <input
-          className="inline-block w-[300px] lg:w-[400px] bg-transparent px-3 py-2 border-2 text-slate-200 border-slate-200 rounded-xl outline-none focus:scale-102 transition-all text-md"
+          className="inline-block w-[250px] lg:w-[400px] bg-transparent rounded-s-lg px-3 py-2 border-2 text-slate-200 border-slate-200 outline-none text-md focus:shadow-lg shadow-white"
           type="text"
           placeholder="Ej. Transformers, Spiderman..."
           onKeyDown={(e) => {
@@ -30,12 +30,12 @@ export default function SearchBar({ API_URL, setPeliculas, setIsLoading }) {
         />
 
         <button
-          className="inline-block w-11 h-11 bg-red-500 text-slate-100 rounded-md hover:bg-red-600 active:bg-red-700"
+          className="inline-block w-20 h-11 font-bold bg-red-500 text-slate-100 rounded-e-lg hover:bg-red-600 active:bg-red-700"
           onClick={() => {
             setPeliculas([]);
           }}
         >
-          x
+          Limpiar
         </button>
       </div>
     </header>
