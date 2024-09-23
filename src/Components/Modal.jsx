@@ -57,13 +57,17 @@ export default function Modal({ visible, movie, closeModal }) {
           visible ? "modal-show" : "modal-hide"
         }`}
       >
-        <img src={movie.poster_path} alt="poster image" className="w-48" />
+        {movie.poster_path ? (
+          <img src={movie.poster_path} alt="poster image" className="w-48" />
+        ) : (
+          <div className="w-112 h-168 bg-zinc-500"></div>
+        )}
 
         <main className="flex flex-col gap-2">
           <h2 className="text-2xl font-bold text-slate-200 italic">
             {movie.title}
           </h2>
-          <p className="text-base text-slate-400 max-h-[240px] overflow-hidden overflow-y-auto">
+          <p className="text-base text-slate-400 max-h-[170px] overflow-hidden overflow-y-auto">
             {movie.overview}
           </p>
           <p className="text-base text-slate-400 leading-4">
