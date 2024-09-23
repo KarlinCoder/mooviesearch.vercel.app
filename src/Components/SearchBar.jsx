@@ -1,4 +1,10 @@
-export default function SearchBar({ API_URL, setPeliculas, setIsLoading }) {
+export default function SearchBar({
+  API_URL,
+  setPeliculas,
+  setIsLoading,
+  setStateMessage,
+  isLoading,
+}) {
   const handleSearch = async (query) => {
     setPeliculas([]);
     setIsLoading(true);
@@ -6,8 +12,13 @@ export default function SearchBar({ API_URL, setPeliculas, setIsLoading }) {
       .then((r) => r.json())
       .then((r) => {
         console.log(r.results);
-        setPeliculas(r.results);
-        setIsLoading(false);
+        if (r.results.length === 0) {
+          setStateMessage("Sin resultados");
+          setIsLoading(true);
+        } else {
+          setIsLoading(false);
+          setPeliculas(r.results);
+        }
       });
   };
 
@@ -24,9 +35,9 @@ export default function SearchBar({ API_URL, setPeliculas, setIsLoading }) {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleSearch(e.target.value);
-              e.target.value = "";
             }
           }}
+          disabled={isLoading}
         />
 
         <button
@@ -34,6 +45,7 @@ export default function SearchBar({ API_URL, setPeliculas, setIsLoading }) {
           onClick={() => {
             setPeliculas([]);
           }}
+          disabled={isLoading}
         >
           Limpiar
         </button>
