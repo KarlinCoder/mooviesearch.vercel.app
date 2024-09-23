@@ -45,6 +45,7 @@ export default function Modal({ visible, movie, closeModal }) {
   };
 
   const handleClose = () => {
+    console.log(movie.poster_path);
     closeModal({ show: false, movie: {} });
   };
 
@@ -53,17 +54,10 @@ export default function Modal({ visible, movie, closeModal }) {
       <div className="absolute w-full h-full bg-slate-800 opacity-60 z-40"></div>
 
       <section
-        className={`flex flex-col gap-4 items-center py-7 px-9 w-[350px] md:w-fit md:max-w-[900px] h-fit bg-slate-800 opacity-100 z-[50] shadow-2xl rounded-xl border-4 border-slate-900 transition-all animate-${
-          visible ? "modal-show" : "modal-hide"
-        }`}
+        style={{ backgroundImage: `url(${movie.poster_path})` }}
+        className={`flex flex-col gap-4 items-center w-[350px] md:w-fit md:max-w-[900px] h-fit z-[50] shadow-2xl rounded-xl border-4 border-slate-900 transition-all animate-modal-show bg-center bg-cover backdrop-brightness-200 overflow-hidden`}
       >
-        {movie.poster_path ? (
-          <img src={movie.poster_path} alt="poster image" className="w-48" />
-        ) : (
-          <div className="w-112 h-168 bg-zinc-500"></div>
-        )}
-
-        <main className="flex flex-col gap-2">
+        <main className="flex w-full h-full bg-black opacity-90 flex-col gap-4 py-7 px-6">
           <h2 className="text-2xl font-bold text-slate-200 italic">
             {movie.title}
           </h2>
@@ -90,13 +84,13 @@ export default function Modal({ visible, movie, closeModal }) {
             <span className="font-bold">Release Date: </span>{" "}
             {movie.release_date}
           </p>
+          <button
+            onClick={handleClose}
+            className="py-1 px-5 bg-red-600 text-white rounded-md hover:bg-red-700 active:bg-red-800"
+          >
+            Close
+          </button>
         </main>
-        <button
-          onClick={handleClose}
-          className="py-1 px-5 bg-red-600 text-white rounded-md hover:bg-red-700 active:bg-red-800"
-        >
-          Close
-        </button>
       </section>
     </section>
   );
