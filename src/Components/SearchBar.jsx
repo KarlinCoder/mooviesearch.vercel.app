@@ -23,7 +23,7 @@ export default function SearchBar({
   };
 
   return (
-    <header className="mx-auto flex flex-col items-center w-[400px] md:w-96 mt-5">
+    <header className="mx-auto flex flex-col items-center w-full md:w-96 mt-5">
       <label className="text-slate-200 text-2xl font-bold py-3 ml-2">
         Buscar pelicula
       </label>

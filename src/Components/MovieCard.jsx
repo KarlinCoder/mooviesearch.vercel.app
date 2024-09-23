@@ -23,7 +23,7 @@ export default function MovieCard({ movie, imageUrl, handleMovieClick }) {
   };
 
   return (
-    <div className="flex items-center w-[370px] md:w-[500px] md:h-[270px] h-fit bg-slate-500 rounded-xl border-2 border-slate-300 p-3">
+    <div className="flex items-center max-w-[370px] md:w-[500px] md:h-[270px] h-fit bg-slate-500 rounded-xl border-2 border-slate-300 p-3">
       {movie.poster_path ? (
         <img src={image} alt={movie.title} className="w-28 m-auto" />
       ) : (
