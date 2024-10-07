@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="text-center">
         <p className="text-lg text-slate-500">Desarrollado y Diseñado por</p>
         <p className="text-xl font-bold text-slate-400">
-          Giancarlo Dennis (Karlindev)
+          Giancarlo Dennis (KarlinCoder)
         </p>
         <p className="text-sm text-slate-500">Aun en estado Beta</p>
       </div>
